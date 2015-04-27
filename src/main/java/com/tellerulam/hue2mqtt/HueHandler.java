@@ -91,7 +91,7 @@ public class HueHandler implements PHSDKListener
 	{
 		L.info("Successfully connected to Hue bridge");
 		phHueSDK.setSelectedBridge(b);
-		phHueSDK.enableHeartbeat(b, PHHueSDK.HB_INTERVAL);
+		phHueSDK.enableHeartbeat(b, Long.getLong("hue2mqtt.hue.heartbeat", PHHueSDK.HB_INTERVAL));
 		MQTTHandler.setHueConnectionState(true);
 		Main.t.schedule(new TimerTask(){
 			@Override
